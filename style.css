@@ -106,7 +106,7 @@ h1 {
     justify-content: space-between;
     gap: 0;
     margin-bottom: 25px;
-    height: 450px; 
+    height: 550px; 
     border: 1px solid var(--secondary-color); 
     /* Sharp corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
