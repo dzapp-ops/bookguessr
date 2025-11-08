@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Guesser - Daily Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Daily Book Guessing Challenge</h1>
+
+        <div id="archive-nav-container"></div>
+        <hr>
+
+        <div id="game-content">
+            <div id="pages-container">
+                
+                <div class="page left-page">
+                    <div id="title-page-content">
+                        <div id="main-title-area">
+                            
+                            <h2 id="first-page-title" class="title-main">???</h2> 
+                            
+                            <p class="title-separator">— * * —</p>
+                            
+                            <p id="first-page-author" class="title-author"></p> 
+                            
+                        </div>
+                        
+                        <div id="metadata-area">
+                            <p id="first-page-genre" class="title-meta"></p>
+                            <p id="first-page-year" class="title-meta"></p>
+                            </div>
+                        
+                        <div id="hint-display">
+                            <p class="small-text"></p>
+                        </div>
+                    </div>
+
+                    <div id="reveal-content" class="hidden">
+                        <h2>🎉 Solved!</h2>
+                        <h3 id="revealed-title-author"></h3>
+                        <div id="book-visuals">
+                            </div>
+                        <p id="attribution-footer" class="small-text"></p>
+                    </div>
+                </div>
+
+                <div class="page right-page">
+                    <h2>Table of Contents</h2>
+                    <ul id="chapter-list">
+                        </ul>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="datalist-wrapper">
+                    <input list="book-titles" id="user-guess" placeholder="Type and select a book title..." autocomplete="off">
+                    <datalist id="book-titles"></datalist>
+                </div>
+                <button onclick="checkGuessWrapper()">Submit Guess</button>
+            </div>
+            
+            <div id="status-area">
+                <p id="feedback-message" class="message"></p>
+                <p id="guesses-remaining-display">Guesses Remaining: 5/5</p>
+
+                <div id="previous-guesses">
+                    <h4>Previous Guesses:</h4>
+                    <ul id="guess-history-list"></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
