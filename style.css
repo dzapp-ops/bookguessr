@@ -1,0 +1,343 @@
+/* --- PATRICK BATEMAN-INSPIRED BOOK/ARCHIVE STYLES (ENHANCED ENGRAVING & SHARP EDGES) --- */
+
+:root {
+    /* Colors inspired by the classic Bateman card (pale bone) and high-end finance */
+    --card-stock: #f7f3f2;      /* Pale Bone/Creamy White - High-quality paper */
+    --primary-color: #001f3f;   /* DEEP NAVY BLUE - Authoritative main accent */
+    --secondary-color: #9a9a9a; /* CRISP PEWTER/SILVER - Elegant separators/borders */
+    --cover-color: #0d0d0d;     /* Deepest Charcoal Black - The cover itself */
+    --bg-color: #e0e0e0;        /* Neutral background to make the artifact stand out */
+
+    --text-color-cover: var(--card-stock); /* Light text for dark cover */
+    --dark-text: #222222;       /* Very dark charcoal for content */
+    
+    --success-color: #2e8b57; /* Darker, sophisticated success green */
+    --error-color: #cc0000;   /* A classic error red */
+
+    /* Enhanced Engrave/Emboss Effect Tones */
+    --engraved-shadow: #000000;   /* Deep shadow for "pressed in" feel */
+    --engraved-highlight: #ffffff; /* Bright highlight for contrast */
+
+    /* Fonts - Classic, prestigious serifs */
+    --font-cover: 'Garamond', 'Palatino Linotype', 'Book Antiqua', serif; 
+    --font-content: 'Georgia', serif;
+}
+
+/* --- Structure --- */
+body {
+    font-family: var(--font-content);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1000px;
+    width: 95%;
+    background-color: var(--card-stock); 
+    padding: 30px;
+    /* Sharp corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); 
+}
+
+h1 { 
+    text-align: center; 
+    /* Apply engraving effect to the main title */
+    color: var(--primary-color); 
+    font-family: var(--font-cover); 
+    text-shadow: 1px 1px 0 #fff; 
+}
+.hidden { display: none !important; }
+
+/* --- ARCHIVE NAVIGATION STYLING (FIXED) --- */
+#archive-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 0 10px;
+}
+#archive-nav-container button {
+    background-color: transparent;
+    color: var(--primary-color); /* Navy accent */
+    border: 1px solid var(--primary-color);
+    padding: 8px 15px;
+    /* Sharp corners */
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    font-family: var(--font-content);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    /* Applied button engraving effect: Light background */
+    text-shadow: 
+        0.5px 0.5px 0 #fff, /* Light highlight */
+        -0.5px -0.5px 0 #ccc; /* Subtle shadow for pressed look */
+}
+#archive-nav-container button:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    text-shadow: none; /* Crisp, flat look on hover */
+}
+#archive-nav-container button:disabled {
+    opacity: 1.0; 
+    cursor: not-allowed;
+    color: #999;
+    border-color: #999;
+    background-color: #f5f5f5; 
+    text-shadow: none; 
+}
+.date-display {
+    font-size: 1.1em;
+    color: var(--dark-text);
+    padding: 0 15px;
+    font-weight: 600;
+    text-shadow: 0.5px 0.5px 0 #fff; /* Subtle text engraving */
+}
+/* --------------------------------------------------------------------------------------------------- */
+
+/* --- Two-Page Container (Book Layout) --- */
+#pages-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    margin-bottom: 25px;
+    height: 450px; 
+    border: 1px solid var(--secondary-color); 
+    /* Sharp corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.page {
+    flex: 1;
+    padding: 30px 40px;
+    overflow-y: auto;
+    font-family: var(--font-content); 
+    /* Scrollbar removal */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
+}
+.page::-webkit-scrollbar {
+    display: none; 
+}
+
+/* LEFT PAGE: COVER STYLING - The Engraved Look */
+.left-page {
+    background-color: var(--cover-color); 
+    color: var(--text-color-cover); 
+    border-right: 1px dashed var(--secondary-color); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#main-title-area {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* 1. TITLE (Largest) - Deeply engraved */
+.title-main {
+    font-family: var(--font-cover); 
+    font-size: 3.2em;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 5px; 
+    
+    color: var(--card-stock);
+    text-shadow: 
+        2px 2px 2px var(--engraved-shadow), 
+        -1px -1px 1px var(--engraved-highlight);
+}
+
+/* 2. AUTHOR - Engraved */
+.title-author {
+    font-family: var(--font-cover);
+    font-size: 1.6em; 
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin: 10px 0 30px 0;
+    
+    color: var(--text-color-cover);
+    text-shadow: 
+        1px 1px 1px var(--engraved-shadow), 
+        -0.5px -0.5px 0 var(--engraved-highlight);
+}
+
+.title-separator {
+    font-size: 1.5em;
+    color: var(--secondary-color); 
+    margin: 10px 0;
+}
+
+/* 3. METADATA (Smallest) - Engraved */
+#metadata-area {
+    text-align: center;
+    font-size: 1.0em;
+    color: var(--text-color-cover);
+    margin-top: auto; 
+    font-family: var(--font-content);
+}
+
+.title-meta {
+    margin: 5px 0;
+    font-style: italic;
+    color: #ccc;
+    
+    text-shadow: 0.5px 0.5px 0.5px var(--engraved-shadow);
+}
+
+/* Right Page (Table of Contents) Styling - Luxurious Interior */
+.right-page {
+    background-color: var(--card-stock); 
+    color: var(--dark-text);
+    border-left: 1px dashed var(--secondary-color);
+}
+
+.right-page h2 {
+    font-family: var(--font-cover); 
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--dark-text);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Subtle engraving to internal heading */
+    text-shadow: 0.5px 0.5px 0 #fff, -0.5px -0.5px 0 #ccc;
+}
+
+#chapter-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#chapter-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 1.05em;
+    border-bottom: 1px dotted #ccc;
+    position: relative;
+    padding-left: 25px;
+    text-shadow: 0.25px 0.25px 0 #fff; /* Very subtle text engraving */
+}
+
+#chapter-list li::before {
+    content: attr(data-chapter-number);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--primary-color); 
+    text-shadow: 0.5px 0.5px 0 #fff; /* Engraving on numbers */
+}
+
+/* Dynamic Hints and Inputs */
+#hint-display {
+    margin-top: 20px;
+    padding-top: 15px;
+}
+#hint-display p {
+    color: var(--dark-text);
+    text-shadow: 0.25px 0.25px 0 #fff;
+}
+
+.input-section { display: flex; gap: 10px; margin-top: 20px; }
+.datalist-wrapper { flex-grow: 1; } 
+#user-guess { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid var(--dark-text); 
+    /* Sharp corners */
+    box-sizing: border-box; 
+    font-family: var(--font-content);
+}
+button { 
+    padding: 12px 20px; 
+    background-color: var(--primary-color); 
+    color: white; 
+    border: none; 
+    /* Sharp corners */
+    cursor: pointer; 
+    font-family: var(--font-content);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+    /* Engraving on button text (white on navy) */
+    text-shadow: 1px 1px 0 #000000;
+}
+button:hover {
+    background-color: #003366; 
+}
+
+/* Status Area */
+#status-area {
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+#guesses-remaining-display {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    /* Applied engraving */
+    color: var(--primary-color);
+    text-shadow: 0.5px 0.5px 0 #fff, -0.5px -0.5px 0 #ccc;
+}
+#previous-guesses h4 {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    text-shadow: 0.25px 0.25px 0 #fff;
+}
+#guess-history-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#guess-history-list li {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    /* Sharp corners */
+    font-size: 0.9em;
+    text-shadow: 0.25px 0.25px 0 #fff;
+}
+
+/* Reveal Area */
+#reveal-content h2 { color: var(--success-color); text-shadow: 0.5px 0.5px 0 #fff; }
+#book-visuals img { max-width: 300px; height: 200px; object-fit: cover; /* Sharp corners */ }
+.hidden { display: none !important; }
+.message { padding: 10px; margin-top: 10px; /* Sharp corners */ text-align: center; }
+.message.success { background-color: #e6f2ee; color: var(--success-color); text-shadow: 0.5px 0.5px 0 #fff; }
+.message.error { background-color: #ffeaea; color: var(--error-color); text-shadow: 0.5px 0.5px 0 #fff; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #pages-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .page {
+        /* Sharp corners */
+        margin-bottom: 15px;
+        min-height: 250px;
+        border-left: 1px solid var(--secondary-color);
+        border-right: 1px solid var(--secondary-color);
+    }
+    .left-page {
+        border-right: none;
+        border-bottom: 1px dashed var(--secondary-color);
+    }
+    .right-page {
+        border-left: none;
+    }
+}
